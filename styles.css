@@ -3,6 +3,7 @@
 * {
     /* background-color:  hsl(36, 100%, 99%); */
     margin: 0;
+    margin-left: 10px;
     padding: 0;
     font-family: 'Inter', sans-serif;
 }
@@ -27,7 +28,9 @@
     list-style-type: none;
     padding: 0.5rem;
 }
-
+.navbar li:not(:last child){
+    margin-right:65px;
+}
 a {
     text-decoration: none;
     color: #333;
@@ -39,28 +42,29 @@ a {
 
 .hero {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns:repeat(3,1fr);
+    grid-template-rows: auto;
     grid-gap: 20px;
-    padding: 20px;
-    margin: 20px;
-    grid-column: 1;
+    margin-top: 20px;
+    grid-template-areas: 
+         'i i n'
+         'c c n';
 }
 
 .hero img {
+    display: grid;
     width: 100%;
     height: auto; 
     object-fit: cover;
     padding: 0px;
-
+    grid-area: i;
     margin-bottom: -10px;
 }
 
 .hero-text {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-area: c;
     gap: 10px;
-    grid-row: 2;
-    grid-column: 1;
     margin: 0px;
 }
 .hero-text a{
@@ -84,8 +88,7 @@ a {
 
 .news {
     display: grid;
-    grid-column: 2;
-    grid-row: 1;
+    grid-area: n;
     background-color: hsl(240, 100%, 5%);
     width: 450px;
     height: 510px;
@@ -116,33 +119,26 @@ a {
 
 .updates {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr)); 
-    grid-gap: 20px; 
+    grid-template-columns: 1fr 1fr 1fr;
+    /* margin:30px;  */
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
-  .updates img {
-    width: 100%;
-    height: auto; 
-    object-fit: cover;
-    padding: 0px;
-    margin: 0px;
+
+  .inline img {
+    width: 100px;
+    height: 150px; 
+    float:left;
+    margin-right: 15px;
   }
-    .updates h1 {
-        font-size: 2rem;
-        font-weight: 100;
-        font-family: 'Inter', sans-serif;
+    .inline h1 {
+        color:  hsl(233, 8%, 79%);
+    }
+    .inline h2 {
         color: #333;
     }
-    .updates h2 {
-        font-size: 1 rem;
-        font-weight: 700;
-        font-family: 'Inter', sans-serif;
-        color: #333;
-    }
-    .updates p {
-        font-size: 0.5 rem;
-        font-weight: 400;
-        font-family: 'Inter', sans-serif;
-        color: #333;
+    .inline p {
+      line-height: 1.6;
     }
 
  
